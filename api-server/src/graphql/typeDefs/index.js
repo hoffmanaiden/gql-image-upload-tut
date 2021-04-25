@@ -6,22 +6,25 @@ const typeDefs = gql`
     id: ID
     name: String
     price: Float
-    img: String
+    img: Upload
   }
   type Query {
     product(id: ID): Product
     products: [Product]
+    info: String!
+
   }
   input ProductInput {
     id: ID
     name: String
     price: Float
-    img: String
+    img: Upload
   }
   type Mutation {
     addProduct(product: ProductInput): [Product]
     updateProduct(product: ProductInput): [Product]
     deleteProduct(product: ProductInput): [Product]
+    imageUploader(file: Upload!): String
   }
 `;
 
